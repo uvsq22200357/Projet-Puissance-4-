@@ -19,7 +19,7 @@ FIRST = tour_joueur #la couleur du joueur qui joue en premier
 R = 0 #nombre de victoire du joueur rouge
 J = 0 #nombre de victoire du joueur jaune
 
-def widget_acceuil():
+def widget_acceuil(): 
     global acceuil_jouer
     global acceuil_charger_partie
     global partie_normale
@@ -77,7 +77,7 @@ def widget_plateau():
     global sauvegarder
     global bouton_triche
 
-    fond_plateau = tk.Label(racine)
+    fond_plateau = tk.Label(racine) #création de la fenêtre racine  
     remake = tk.Button(sous_page, text="REVANCHE", command = revanche, font=("helvetica", "10"), relief = "flat", bg = "#141414", fg = "gray69", width = 15) # création de bouton revanche
     draw = tk.Button(sous_page, text="ÉGALITÉ...",  font=("helvetica", "10"), bg = "#141414", fg = "gray69", width = 15, relief = "flat", state = "disabled") # création texte égalité
     victoire = tk.Button(sous_page, text=" ",  font=("helvetica", "10"), bg = "#141414", relief = "flat", width = 15, state = "disabled") #création du texte de victoire
