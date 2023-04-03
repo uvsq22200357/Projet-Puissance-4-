@@ -8,7 +8,7 @@ from random import randint
 ####################################################################################################################
 
 
-tour_joueur = randint(1,2) #choisi aléatoirement le joueur qui commence
+tour_joueur = randint(1,2) #choisi aléatoirement le joueur qui commence 
 L = []
 MODE_PARTIE = 0
 NB_COUP = 0 #nombre de coup joué 
@@ -65,8 +65,8 @@ def widget_acceuil():
     valider.bind("<Enter>", lambda event : couleur_entree(event, valider))
     valider.bind("<Leave>", lambda event : couleur_sortie(event, valider))
 
-def widget_plateau():
-    global fond_plateau
+def widget_plateau(): 
+    global fond_plateau 
     global remake
     global draw
     global victoire
@@ -99,7 +99,7 @@ def widget_plateau():
     tour.bind("<Leave>", visuel_tour_joueur_sortie)
 
 
-def acceuil():
+def acceuil(): #fonction qui 
     acceuil_jouer.place(relx = 0.5, rely = 0.425, anchor = "center")
     acceuil_charger_partie.place(relx = 0.5, rely = 0.575, anchor = "center")
 
@@ -143,7 +143,7 @@ def valider_option():
     partie_aveugle.place(relx= 0.5, rely = 0.65, anchor = "center")
     plateau(HEIGHT, WIDTH, GAGNE, 1)
     
-def plateau(haut, larg, puissance, mode):
+def plateau(haut, larg, puissance, mode): 
     '''création du nouveau plateau'''
     global GAGNE
     global HEIGHT
