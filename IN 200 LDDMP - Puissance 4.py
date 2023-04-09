@@ -99,7 +99,7 @@ def widget_plateau():
     tour.bind("<Leave>", visuel_tour_joueur_sortie)
 
 
-def acceuil(): 
+def acceuil(): #fonction qui
     acceuil_jouer.place(relx = 0.5, rely = 0.425, anchor = "center")
     acceuil_charger_partie.place(relx = 0.5, rely = 0.575, anchor = "center")
 
@@ -387,7 +387,7 @@ def annuler_coup():
     annuler_coup_visuel()
     annuler_coup_matrice()
 
-def annuler_coup_matrice():
+def annuler_coup_matrice():  
     global tour_joueur
     global NB_COUP
     global DERNIER_COUP_I
