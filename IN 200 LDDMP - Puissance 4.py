@@ -46,7 +46,7 @@ def widget_acceuil(): #création page d'accueil
     case_WIDTH = tk.Button(racine, text = "LARGEUR", font=("helvetica", "20"), relief = "flat", bg = "#141414", fg = "gray69", width = 15, state = "disabled")
     case_GAGNE = tk.Button(racine, text = "PUISSANCE N", font=("helvetica", "20"), relief = "flat", bg = "#141414", fg = "gray69", width = 15, state = "disabled")
 
-    acceuil_jouer.bind("<Enter>", lambda event : couleur_entree(event, acceuil_jouer))
+    acceuil_jouer.bind("<Enter>", lambda event : couleur_entree(event, acceuil_jouer)) 
     acceuil_jouer.bind("<Leave>", lambda event : couleur_sortie(event, acceuil_jouer))
     acceuil_charger_partie.bind("<Enter>", lambda event : couleur_entree(event, acceuil_charger_partie))
     acceuil_charger_partie.bind("<Leave>", lambda event : couleur_sortie(event, acceuil_charger_partie))
@@ -99,7 +99,7 @@ def widget_plateau():
     tour.bind("<Leave>", visuel_tour_joueur_sortie)
 
 
-def acceuil(): #fonction qui
+def acceuil(): 
     acceuil_jouer.place(relx = 0.5, rely = 0.425, anchor = "center")
     acceuil_charger_partie.place(relx = 0.5, rely = 0.575, anchor = "center")
 
@@ -379,7 +379,7 @@ def annuler_coup():
     '''fonction qui annule le dernier coup'''
     
     if DERNIER_COUP_I == -1 or NB_COUP == 0: #si on est déjà revenu en arrière le tour d'avant, on ne peut plus le refaire
-        pas_la = tk.Button(sous_page, text="ACTION IMPOSSIBLE", font=("helvetica", "10"), bg = "gray69", fg = "#141414", width = 15, relief = "flat")
+        pas_la = tk.Button(sous_page, text="ACTION IMPOSSIBLE", font=("helvetica", "10"), bg = "medium blue", fg = "#141414", width = 15, relief = "flat")
         pas_la.after(1000, pas_la.destroy)
         pas_la.grid(column = 0, row = 0)
         return()
@@ -402,7 +402,7 @@ def annuler_coup_matrice():
         tour.config(bg = "yellow2")
 
 def annuler_coup_visuel():
-    carré = fond_plateau.create_rectangle((DERNIER_COUP_J*100,HEIGHT*100 - DERNIER_COUP_I*100), ((DERNIER_COUP_J+1)*100,HEIGHT*100 - (DERNIER_COUP_I+1)*100), fill="gray", outline="white") # restaure le plateau visuel
+    carré = fond_plateau.create_rectangle((DERNIER_COUP_J*100,HEIGHT*100 - DERNIER_COUP_I*100), ((DERNIER_COUP_J+1)*100,HEIGHT*100 - (DERNIER_COUP_I+1)*100), fill="medium blue", outline="white") # restaure le plateau visuel
 
 def revanche(): #fonction qui redémarre le jeu 
     global L
