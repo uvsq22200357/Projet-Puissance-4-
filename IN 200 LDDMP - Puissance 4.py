@@ -19,7 +19,7 @@ FIRST = tour_joueur #la couleur du joueur qui joue en premier
 R = 0 #nombre de victoire du joueur rouge
 J = 0 #nombre de victoire du joueur jaune
 
-def widget_acceuil(): 
+def widget_acceuil(): #création page d'accueil 
     global acceuil_jouer
     global acceuil_charger_partie
     global partie_normale
@@ -82,12 +82,12 @@ def widget_plateau():
     draw = tk.Button(sous_page, text="ÉGALITÉ...",  font=("helvetica", "10"), bg = "#141414", fg = "gray69", width = 15, relief = "flat", state = "disabled") # création texte égalité
     victoire = tk.Button(sous_page, text=" ",  font=("helvetica", "10"), bg = "#141414", relief = "flat", width = 15, state = "disabled") #création du texte de victoire
     tour = tk.Button(sous_page, relief = "flat", font=("helvetica", "10"), width = 15, fg = "#141414", state = "disabled")
-    undo = tk.Button(sous_page, text="ANNULER", font=("helvetica", "10"), command = annuler_coup,relief = "flat", bg = "#141414", fg = "gray69",width = 15)
+    undo = tk.Button(sous_page, text="ANNULER", font=("helvetica", "10"), command = annuler_coup,relief = "flat", bg = "#141414", fg = "gray69",width = 15) #création texte annuler 
     score = tk.Button(sous_page, relief = "flat", text="R " + str(R) + " | J " + str(J), font=("helvetica", "10"), bg = "#141414", fg = "gray69",width = 15, state = "disabled")
-    menu = tk.Button(sous_page, relief = "flat", text="MENU", command = retour_menu, font=("helvetica", "10"), bg = "#141414", fg = "gray69",width = 15)
-    sauvegarder = tk.Button(sous_page, relief = "flat", text="SAUVEGARDER", command = sauvegarder_partie, font=("helvetica", "10"), bg = "#141414", fg = "gray69",width = 15)
+    menu = tk.Button(sous_page, relief = "flat", text="MENU", command = retour_menu, font=("helvetica", "10"), bg = "#141414", fg = "gray69",width = 15) #création texte menu
+    sauvegarder = tk.Button(sous_page, relief = "flat", text="SAUVEGARDER", command = sauvegarder_partie, font=("helvetica", "10"), bg = "#141414", fg = "gray69",width = 15) #création texte sauvegarder
 
-    remake.bind("<Enter>", lambda event : couleur_entree(event, remake))
+    remake.bind("<Enter>", lambda event : couleur_entree(event, remake)) 
     remake.bind("<Leave>", lambda event : couleur_sortie(event, remake))
     undo.bind("<Enter>", lambda event : couleur_entree(event, undo))
     undo.bind("<Leave>", lambda event : couleur_sortie(event, undo))
@@ -99,7 +99,7 @@ def widget_plateau():
     tour.bind("<Leave>", visuel_tour_joueur_sortie)
 
 
-def acceuil(): #fonction qui 
+def acceuil(): 
     acceuil_jouer.place(relx = 0.5, rely = 0.425, anchor = "center")
     acceuil_charger_partie.place(relx = 0.5, rely = 0.575, anchor = "center")
 
@@ -177,10 +177,10 @@ def plateau(haut, larg, puissance, mode):
 
     fond_plateau.grid(column = 0, row = 0)
     if mode == 1:
-        fond_plateau.bind("<Button-1>", placement)
+        fond_plateau.bind("<Button-1>", placement) #lance fonction placement quand click souris gauce 
     elif mode == 2:
-        fond_plateau.bind("<Button-1>", placement_aveugle)
-    racine.bind("<Return>", activation_triche)
+        fond_plateau.bind("<Button-1>", placement_aveugle) #lance fonction placement aveugle quand click souris gauche 
+    racine.bind("<Return>", activation_triche) #lance fonction qui active la fonction triche quand on appui sur touche return 
 
 def plateau_visuel():
     global fond_plateau
@@ -188,9 +188,9 @@ def plateau_visuel():
 
     fond_plateau.destroy() # destruction de l'ancien plateau
 
-    fond_plateau = tk.Canvas(racine, bg="gray", height = 100*HEIGHT, width = 100*WIDTH)  # création du plateau
+    fond_plateau = tk.Canvas(racine, bg="medium blue", height = 100*HEIGHT, width = 100*WIDTH)  # création du plateau
     for i in range(WIDTH):
-        fond_plateau.create_line((i*100, 0), (i*100, HEIGHT*100), fill="white", width=1)
+        fond_plateau.create_line((i*100, 0), (i*100, HEIGHT*100), fill="white", width=1)  
     for j in range(HEIGHT):
         fond_plateau.create_line((0, j*100), (WIDTH*100, j*100), fill="white", width=1)
 
@@ -404,7 +404,7 @@ def annuler_coup_matrice():
 def annuler_coup_visuel():
     carré = fond_plateau.create_rectangle((DERNIER_COUP_J*100,HEIGHT*100 - DERNIER_COUP_I*100), ((DERNIER_COUP_J+1)*100,HEIGHT*100 - (DERNIER_COUP_I+1)*100), fill="gray", outline="white") # restaure le plateau visuel
 
-def revanche():
+def revanche(): #fonction qui redémarre le jeu 
     global L
     L = []
     plateau(HEIGHT, WIDTH, GAGNE, MODE_PARTIE)
@@ -515,7 +515,7 @@ def visuel_tour_joueur_sortie(event):
     else:
         tour.config(bg = "#f34246", text = "")
 
-def activation_triche(event):
+def activation_triche(event): #lancement fonction triche, on gagne immédiatement
     bouton_triche = tk.Button(sous_page, text="GAGNE",command = triche, font=("helvetica", "10"), bg = "black", fg = "#141414", width = 15, relief = "flat", state = "active")
     bouton_triche.after(1000, bouton_triche.destroy)
     bouton_triche.grid(column = 1, row = 1)
@@ -525,7 +525,7 @@ def triche():
     global R
     global PARTIE
 
-    if tour_joueur ==1:
+    if tour_joueur ==1: #on vérifie quel joueur a triché, il gagne immédiatement
         PARTIE = 1
         J += 1
         score.config(text="R " + str(R) + " | J " + str(J))
