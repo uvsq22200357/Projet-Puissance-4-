@@ -19,7 +19,7 @@ FIRST = tour_joueur #la couleur du joueur qui joue en premier
 R = 0 #nombre de victoire du joueur rouge
 J = 0 #nombre de victoire du joueur jaune
 
-def widget_acceuil(): #création page d'accueil 
+def widget_acceuil(): 
     global acceuil_jouer
     global acceuil_charger_partie
     global partie_normale
@@ -33,12 +33,12 @@ def widget_acceuil(): #création page d'accueil
     global case_HEIGHT
     global case_WIDTH
 
-    acceuil_jouer = tk.Button(racine, command = jouer, text = "JOUER", font=("helvetica", "40"), relief = "flat", bg = "#141414", fg = "gray69", width = 15)
+    acceuil_jouer = tk.Button(racine, command = jouer, text = "JOUER", font=("helvetica", "40"), relief = "flat", bg = "#141414", fg = "gray69", width = 15) #création du bouton jouer 
     acceuil_charger_partie = tk.Button(racine, command = importer, text = "IMPORTER", font=("helvetica", "40"), relief = "flat", bg = "#141414", fg = "gray69", width = 15)
     partie_normale = tk.Button(racine, command = lambda : plateau(6, 7, 4, 1), text = "PARTIE NORMALE", font=("helvetica", "40"), relief = "flat", bg = "#141414", fg = "gray69", width = 15)
     partie_personnalisee = tk.Button(racine, command = partie_perso, text = "PARTIE PERSO", font=("helvetica", "40"), relief = "flat", bg = "#141414", fg = "gray69", width = 15)
     partie_aveugle = tk.Button(racine, command = lambda : plateau(6, 7, 4, 2), text = "PARTIE AVEUGLE", font=("helvetica", "40"), relief = "flat", bg = "#141414", fg = "gray69", width = 15)
-    entree_HEIGHT = tk.Entry(racine, text = "Le nombre de case en hauteur", font=("helvetica", "20"), relief = "flat", fg = "#141414", bg = "gray69")
+    entree_HEIGHT = tk.Entry(racine, text = "Le nombre de case en hauteur", font=("helvetica", "20"), relief = "flat", fg = "#141414", bg = "gray69") #affiche la ligne de texte 
     entree_WIDTH = tk.Entry(racine, text = "Le nombre de case en largeur", font=("helvetica", "20"), relief = "flat", fg = "#141414", bg = "gray69")
     entree_GAGNE = tk.Entry(racine, text = "Le nombre de pion pour gagner", font=("helvetica", "20"), relief = "flat", fg = "#141414", bg = "gray69")
     valider = tk.Button(racine, command = valider_option, text = "VALIDER", font=("helvetica", "20"), relief = "flat", bg = "#141414", fg = "gray69", width = 15)
@@ -46,8 +46,8 @@ def widget_acceuil(): #création page d'accueil
     case_WIDTH = tk.Button(racine, text = "LARGEUR", font=("helvetica", "20"), relief = "flat", bg = "#141414", fg = "gray69", width = 15, state = "disabled")
     case_GAGNE = tk.Button(racine, text = "PUISSANCE N", font=("helvetica", "20"), relief = "flat", bg = "#141414", fg = "gray69", width = 15, state = "disabled")
 
-    acceuil_jouer.bind("<Enter>", lambda event : couleur_entree(event, acceuil_jouer)) 
-    acceuil_jouer.bind("<Leave>", lambda event : couleur_sortie(event, acceuil_jouer))
+    acceuil_jouer.bind("<Enter>", lambda event : couleur_entree(event, acceuil_jouer)) #quand la souris passe au dessus du widget la fonction couleur_entree s'execute   
+    acceuil_jouer.bind("<Leave>", lambda event : couleur_sortie(event, acceuil_jouer)) #quand la souris sort du widget la fonction couleur_entree s'execute 
     acceuil_charger_partie.bind("<Enter>", lambda event : couleur_entree(event, acceuil_charger_partie))
     acceuil_charger_partie.bind("<Leave>", lambda event : couleur_sortie(event, acceuil_charger_partie))
     partie_normale.bind("<Enter>", lambda event : couleur_entree(event, partie_normale))
@@ -77,18 +77,18 @@ def widget_plateau():
     global sauvegarder
     global bouton_triche
 
-    fond_plateau = tk.Label(racine) #création de la fenêtre racine  
+    fond_plateau = tk.Label(racine) 
     remake = tk.Button(sous_page, text="REVANCHE", command = revanche, font=("helvetica", "10"), relief = "flat", bg = "#141414", fg = "gray69", width = 15) # création de bouton revanche
-    draw = tk.Button(sous_page, text="ÉGALITÉ...",  font=("helvetica", "10"), bg = "#141414", fg = "gray69", width = 15, relief = "flat", state = "disabled") # création texte égalité
-    victoire = tk.Button(sous_page, text=" ",  font=("helvetica", "10"), bg = "#141414", relief = "flat", width = 15, state = "disabled") #création du texte de victoire
+    draw = tk.Button(sous_page, text="ÉGALITÉ...",  font=("helvetica", "10"), bg = "#141414", fg = "gray69", width = 15, relief = "flat", state = "disabled") # création du bouton texte égalité
+    victoire = tk.Button(sous_page, text=" ",  font=("helvetica", "10"), bg = "#141414", relief = "flat", width = 15, state = "disabled") #création du bouton de victoire
     tour = tk.Button(sous_page, relief = "flat", font=("helvetica", "10"), width = 15, fg = "#141414", state = "disabled")
-    undo = tk.Button(sous_page, text="ANNULER", font=("helvetica", "10"), command = annuler_coup,relief = "flat", bg = "#141414", fg = "gray69",width = 15) #création texte annuler 
+    undo = tk.Button(sous_page, text="ANNULER", font=("helvetica", "10"), command = annuler_coup,relief = "flat", bg = "#141414", fg = "gray69",width = 15) #création du bouton texte annuler 
     score = tk.Button(sous_page, relief = "flat", text="R " + str(R) + " | J " + str(J), font=("helvetica", "10"), bg = "#141414", fg = "gray69",width = 15, state = "disabled")
-    menu = tk.Button(sous_page, relief = "flat", text="MENU", command = retour_menu, font=("helvetica", "10"), bg = "#141414", fg = "gray69",width = 15) #création texte menu
-    sauvegarder = tk.Button(sous_page, relief = "flat", text="SAUVEGARDER", command = sauvegarder_partie, font=("helvetica", "10"), bg = "#141414", fg = "gray69",width = 15) #création texte sauvegarder
+    menu = tk.Button(sous_page, relief = "flat", text="MENU", command = retour_menu, font=("helvetica", "10"), bg = "#141414", fg = "gray69",width = 15) #création du bouton menu
+    sauvegarder = tk.Button(sous_page, relief = "flat", text="SAUVEGARDER", command = sauvegarder_partie, font=("helvetica", "10"), bg = "#141414", fg = "gray69",width = 15) #création du bouton sauvegarder
 
-    remake.bind("<Enter>", lambda event : couleur_entree(event, remake)) 
-    remake.bind("<Leave>", lambda event : couleur_sortie(event, remake))
+    remake.bind("<Enter>", lambda event : couleur_entree(event, remake)) #quand la souris passe au dessus du widget la fonction couleur_entree s'execute   
+    remake.bind("<Leave>", lambda event : couleur_sortie(event, remake)) #quand la souris sort du widget la fonction couleur_entree s'execute  
     undo.bind("<Enter>", lambda event : couleur_entree(event, undo))
     undo.bind("<Leave>", lambda event : couleur_sortie(event, undo))
     menu.bind("<Enter>", lambda event : couleur_entree(event, menu))
@@ -100,11 +100,11 @@ def widget_plateau():
 
 
 def acceuil(): 
-    acceuil_jouer.place(relx = 0.5, rely = 0.425, anchor = "center")
+    acceuil_jouer.place(relx = 0.5, rely = 0.425, anchor = "center") # on place le widget
     acceuil_charger_partie.place(relx = 0.5, rely = 0.575, anchor = "center")
 
 def jouer():
-    acceuil_jouer.place_forget()
+    acceuil_jouer.place_forget() # on cache le widget
     acceuil_charger_partie.place_forget()
     partie_normale.place(relx= 0.5, rely = 0.35, anchor = "center")
     partie_personnalisee.place(relx= 0.5, rely = 0.5, anchor = "center")
@@ -131,7 +131,7 @@ def valider_option():
     WIDTH = int(entree_WIDTH.get())
     GAGNE = int(entree_GAGNE.get())
 
-    entree_GAGNE.place_forget()
+    entree_GAGNE.place_forget() 
     entree_HEIGHT.place_forget()
     entree_WIDTH.place_forget()
     valider.place_forget()
@@ -180,7 +180,7 @@ def plateau(haut, larg, puissance, mode):
         fond_plateau.bind("<Button-1>", placement) #lance fonction placement quand click souris gauce 
     elif mode == 2:
         fond_plateau.bind("<Button-1>", placement_aveugle) #lance fonction placement aveugle quand click souris gauche 
-    racine.bind("<Return>", activation_triche) #lance fonction qui active la fonction triche quand on appui sur touche return 
+    racine.bind("<Return>", activation_triche) #lance fonction triche quand on appui sur touche entree 
 
 def plateau_visuel():
     global fond_plateau
@@ -352,7 +352,7 @@ def vérification_score(i, j):
         remake.grid()
         draw.grid()
 
-def placement_aveugle(event):
+def placement_aveugle(event): # mode avuegle, les pions sont affiches blanc 
     '''permet de placer les pièces'''
     j = int(event.x)// 100 #la colonne sur laquelle on joue
     i = 0
@@ -380,8 +380,8 @@ def annuler_coup():
     
     if DERNIER_COUP_I == -1 or NB_COUP == 0: #si on est déjà revenu en arrière le tour d'avant, on ne peut plus le refaire
         pas_la = tk.Button(sous_page, text="ACTION IMPOSSIBLE", font=("helvetica", "10"), bg = "medium blue", fg = "#141414", width = 15, relief = "flat")
-        pas_la.after(1000, pas_la.destroy)
-        pas_la.grid(column = 0, row = 0)
+        pas_la.after(1000, pas_la.destroy) # appele fonction apres 1000 ms 
+        pas_la.grid(column = 0, row = 0) 
         return()
     
     annuler_coup_visuel()
@@ -447,9 +447,9 @@ def importer():
     acceuil_jouer.place_forget()
     acceuil_charger_partie.place_forget()
 
-    fichier = open("sauvegarde.txt", "r")
-    save = fichier.read()
-    fichier.close
+    fichier = open("sauvegarde.txt", "r") # on ouvre le fichier mode read 
+    save = fichier.read() # on enregistre le fichier 
+    fichier.close # on ferme le fichier 
 
     HEIGHT = int(save[0])
     WIDTH = int(save[1])
@@ -466,7 +466,7 @@ def importer():
     placement_piece_sauvegarde()
 
 def sauvegarder_partie():
-    fichier = open("sauvegarde.txt", "w")
+    fichier = open("sauvegarde.txt", "w") # on ouvre le fichier mode write 
 
     fichier.write(str(HEIGHT))
     fichier.write(str(WIDTH))
@@ -541,11 +541,11 @@ def triche():
         victoire.grid()
 
 # création de la page
-racine = tk.Tk()
-racine.title("Puissance 4")
-racine.geometry("1000x1000")
+racine = tk.Tk() # création de la fenetre racine
+racine.title("Puissance 4") # ajout du titre 
+racine.geometry("1000x1000") # taille de la fenetre 
 sous_page = tk.Frame(racine, bg = "#141414") #endroit des boutons
-racine.config(bg = "#141414")
+racine.config(bg = "#141414") 
 sous_page.grid(column=1, row = 0)
 
 widget_plateau()
