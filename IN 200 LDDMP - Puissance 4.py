@@ -2,7 +2,7 @@ import tkinter as tk
 from random import randint
 ####################################################################################################################
 #                                                                                                                  #
-#   PUISSANCE 4   :    Thomas TRAN  /  Lis Ainhoa ALFARO LANDA   /   Hugo BOUGNIAC   /   Clémentine HELLEHOURACH   #
+#   PUISSANCE 4   :    Thomas TRAN  /  Lis Ainhoa ALFARO LANDA   /   Hugo BOUGNIAC   /   Clémentine HELLEGOUARCH   #
 #                                                                                                                  #
 ####################################################################################################################
 tour_joueur = randint(1,2) #choisi aléatoirement le joueur qui commence 
